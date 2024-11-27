@@ -54,14 +54,31 @@ The card options are:
 * `show_countdown_timer`: (optional boolean). default false. set to true to show countdown timer, or false to hide it.  If enabled, you must also configure the `durations` list, specifying a duration in seconds for the arming, and pending states. These times should match the times you specified in your manual config.
 * `scale`: (optional string). default is 14px. increase/decrease the size of the buttons/text/etc by changing this number
 * `title`: (optional string) if provided will show this title at the top of the card, and the alarm state will be below it. if not provided, will show the alarm state as the title (which saves some vertical space, if you are space constrained, like on a wall tablet)
-* `states`: (optional list). list of arming states to support. Default is `armed_away` and `armed_home`. If you use more than two, you may need to adjust the `.actions button` widths 
+* `states`: (optional list). list of arming states to support. Default is `armed_away` and `armed_home` (states are shown below). If you use more than two, you may need to adjust the `.actions button` widths. 
 * `confirm_entities`: (optional list) a list of sensors which will be continuously monitored when disarmed so it can show Ready/Not ready text in the card header.  If `confirm_entities` is specified, you may optionally also set `disable_arm_if_not_ready` to disable the arm buttons and auto_enter action unless all the listed sensors are ready. And if `disable_arm_if_not_ready` is set, you may also optionally set `show_override_if_not_ready` to show an override checkbox when the entities are not ready, which will re-enable the arming buttons (allowing you, for example, to arm the alarm but leave a window open).
-* `labels`: (optional list) list of text replacements, allowing you to customize the text that is shown for `ui.card.alarm_control_panel.arm_away`, `ui.card.alarm_control_panel.arm_home`, `ui.card.alarm_control_panel.clear_code`, `ready` and `not_ready` 
+* `labels`: (optional list) list of text replacements, allowing you to customize the text that is shown. Supported labels (states are shown below):
+	* `ui.card.alarm_control_panel.arm_away`
+ 	* `ui.card.alarm_control_panel.arm_home`
+  	* `ui.card.alarm_control_panel.clear_code`
+  	* `ready`
+  	* `not_ready`
+  	* `state.alarm_control_panel.icon.<state>.text`
+  	* `state.alarm_control_panel.icon.<state>.mdi`
+  	* `state.alarm_control_panel.<state>`
 * `display_letters`: (optional boolean) shows letters on number pad buttons like a telephone keypad
 * `style`: (optional string) this text will be appended to the card css style, allowing you to override colors, etc. Also see [Thomas Loven's card mod](https://github.com/thomasloven/lovelace-card-mod)
 * `auto_hide`: (optional boolean) hides the keypad and action buttons. click on the badge to show/hide them.  
 * `auto_enter`: (optional object). you must also specify `code_length` and `arm_action`. This will automatically disarm or arm with the specified arm\_action when entering the code. When a code of the correct length is entered and the alarm is currently armed, the alarm will be disarmed. If `alarm_control_panel.code_arm_required` is on and the alarm is currently disarmed, and a code of the correct length is entered, the arm_action will be triggered (e.g. 'arm\_home' or 'arm\_away'). 
 
+States are:
+* `armed_away`
+* `armed_custom_bypass`
+* `armed_home`
+* `armed_night`
+* `disarmed`
+* `pending`
+* `triggered`
+  
 ## My Setup
 
 My alarm setup consists of:
