@@ -151,7 +151,7 @@ class AlarmControlPanelCard extends HTMLElement {
     this._updateReady();
  
     root.getElementById("state-icon").setAttribute("icon",
-    this._icons[this._state] || 'mdi:shield-outline');
+    this._config.labels[`state.alarm_control_panel.icon.${this._state}.mdi`] || this._icons[this._state] || 'mdi:shield-outline');
     root.getElementById("badge-icon").className = this._state;
 
     var iconText = this._stateIconLabel(this._state);
@@ -280,7 +280,7 @@ class AlarmControlPanelCard extends HTMLElement {
     const stateLabel = state.split("_").pop();
     if (stateLabel === "disarmed" || stateLabel === "triggered" || !stateLabel)
        return "";
-    return stateLabel;
+    return this._label("state.alarm_control_panel.icon."+state+".text");
   }
 
   _iconLabel() {
