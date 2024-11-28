@@ -151,7 +151,7 @@ class AlarmControlPanelCard extends HTMLElement {
     this._updateReady();
  
     root.getElementById("state-icon").setAttribute("icon",
-    this._config.labels[`state.alarm_control_panel.icon.${this._state}.mdi`] || this._icons[this._state] || 'mdi:shield-outline');
+      this._config.labels[`state.alarm_control_panel.${this._state}.icon.mdi`] || this._icons[this._state] || 'mdi:shield-outline');
     root.getElementById("badge-icon").className = this._state;
 
     var iconText = this._stateIconLabel(this._state);
@@ -280,7 +280,7 @@ class AlarmControlPanelCard extends HTMLElement {
     const stateLabel = state.split("_").pop();
     if (stateLabel === "disarmed" || stateLabel === "triggered" || !stateLabel)
        return "";
-    return this._label("state.alarm_control_panel.icon."+state+".text");
+    return this._label(`state.alarm_control_panel.${state}.icon.text`);
   }
 
   _iconLabel() {
@@ -499,10 +499,10 @@ class AlarmControlPanelCard extends HTMLElement {
       ha-card {
         position: relative;
         padding-bottom: 32px;
-        --alarm-color-disarmed: var(--label-badge-green);
-        --alarm-color-pending: var(--label-badge-yellow);
-        --alarm-color-triggered: var(--label-badge-red);
-        --alarm-color-armed: var(--label-badge-red);
+        --alarm-color-disarmed: var(--${this._label("state.alarm_control_panel.disarmed.icon.label_badge_color",'label-badge-green')});
+        --alarm-color-pending: var(--${this._label("state.alarm_control_panel.pending.icon.label_badge_color",'label-badge-yellow')});
+        --alarm-color-triggered: var(--${this._label("state.alarm_control_panel.triggered.icon.label_badge_color",'label-badge-red')});
+        --alarm-color-armed: var(--${this._label("state.alarm_control_panel.armed.icon.label_badge_color",'label-badge-red')});
         --alarm-color-autoarm: rgba(0, 153, 255, .1);
         --alarm-state-color: var(--alarm-color-armed);
         --base-unit: ${this._config.scale};
@@ -753,4 +753,3 @@ class AlarmControlPanelCard extends HTMLElement {
 }
 
 customElements.define('alarm_control_panel-card', AlarmControlPanelCard);
-
