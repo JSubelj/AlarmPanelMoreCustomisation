@@ -62,22 +62,31 @@ The card options are:
   	* `ui.card.alarm_control_panel.clear_code`
   	* `ready`
   	* `not_ready`
-  	* `state.alarm_control_panel.icon.<state>.text`
-  	* `state.alarm_control_panel.icon.<state>.mdi`
+  	* `state.alarm_control_panel.<state>.icon.text`
+  	* `state.alarm_control_panel.<state>.icon.mdi`
+  	* `state.alarm_control_panel.<state>.icon.label_badge_color`
   	* `state.alarm_control_panel.<state>`
+  	
 * `display_letters`: (optional boolean) shows letters on number pad buttons like a telephone keypad
 * `style`: (optional string) this text will be appended to the card css style, allowing you to override colors, etc. Also see [Thomas Loven's card mod](https://github.com/thomasloven/lovelace-card-mod)
 * `auto_hide`: (optional boolean) hides the keypad and action buttons. click on the badge to show/hide them.  
 * `auto_enter`: (optional object). you must also specify `code_length` and `arm_action`. This will automatically disarm or arm with the specified arm\_action when entering the code. When a code of the correct length is entered and the alarm is currently armed, the alarm will be disarmed. If `alarm_control_panel.code_arm_required` is on and the alarm is currently disarmed, and a code of the correct length is entered, the arm_action will be triggered (e.g. 'arm\_home' or 'arm\_away'). 
+
+Label badge colors (non-exhaustive):
+* `label-badge-green`
+* `label-badge-yellow`
+* `label-badge-red`
+* `label-badge-blue`
 
 States are:
 * `armed_away`
 * `armed_custom_bypass`
 * `armed_home`
 * `armed_night`
-* `disarmed`
-* `pending`
-* `triggered`
+* `disarmed` - also for `label_badge_color`
+* `pending` - also for `label_badge_color`
+* `triggered` - also for `label_badge_color`
+* `armed` - only for `label_badge_color`
   
 ## My Setup
 
