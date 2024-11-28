@@ -278,9 +278,12 @@ class AlarmControlPanelCard extends HTMLElement {
 
   _stateIconLabel(state) {
     const stateLabel = state.split("_").pop();
-    if (stateLabel === "disarmed" || stateLabel === "triggered" || !stateLabel)
+    const labelKey = `state.alarm_control_panel.${state}.icon.text`;
+    const labelFound = this._label(labelKey,"")
+
+    if (labelFound=="" && (stateLabel === "disarmed" || stateLabel === "triggered" || !stateLabel))
        return "";
-    return this._label(`state.alarm_control_panel.${state}.icon.text`);
+    return this._label(labelKey);
   }
 
   _iconLabel() {
