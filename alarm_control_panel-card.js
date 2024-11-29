@@ -333,12 +333,16 @@ class AlarmControlPanelCard extends HTMLElement {
     ctx.clearRect(0, 0, this._timerSize, this._timerSize);
     
     const centerPos = this._timerSize / 2;
-    if (elapsedPercent > 0.75)
-      ctx.fillStyle = 'red';
-    else if (elapsedPercent > 0.5)
-      ctx.fillStyle = 'orange';
-    else
-      ctx.fillStyle = '#8ac575';
+    if (this._config.color_countdown_timer){
+      ctx.fillStyle = this._config.color_countdown_timer
+    }else{
+      if (elapsedPercent > 0.75)
+        ctx.fillStyle = 'red';
+      else if (elapsedPercent > 0.5)
+        ctx.fillStyle = 'orange';
+      else
+        ctx.fillStyle = '#8ac575';
+    }
       
     // draw filled center circle
     ctx.beginPath();
