@@ -52,6 +52,7 @@ The card options are:
 
 * `entity`: (required string) the name of the manual `alarm_control_panel` entity
 * `show_countdown_timer`: (optional boolean). default false. set to true to show countdown timer, or false to hide it.  If enabled, you must also configure the `durations` list, specifying a duration in seconds for the arming, and pending states. These times should match the times you specified in your manual config.
+* `color_countdown_timer`: (optional string). If empty then color changes from green to orange to red, else it uses color provided.
 * `scale`: (optional string). default is 14px. increase/decrease the size of the buttons/text/etc by changing this number
 * `title`: (optional string) if provided will show this title at the top of the card, and the alarm state will be below it. if not provided, will show the alarm state as the title (which saves some vertical space, if you are space constrained, like on a wall tablet)
 * `states`: (optional list). list of arming states to support. Default is `armed_away` and `armed_home` (states are shown below). If you use more than two, you may need to adjust the `.actions button` widths. 
