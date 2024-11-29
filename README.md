@@ -1,3 +1,5 @@
+Main reason for the fork was so I can use alarm control panel to open my door with password got idea from here: https://github.com/esphome/feature-requests/issues/2058.
+
 # Custom Alarm Panel Card
 
 This custom alarm panel card was forked in September 2020 from [Kevin Cooper's repo](https://github.com/JumpMaster/custom-lovelace) (no relation). 
